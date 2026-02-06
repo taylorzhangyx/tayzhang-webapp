@@ -1,32 +1,28 @@
 import Link from 'next/link';
 
-export default function Header() {
+export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <header className="border-b border-gray-200 dark:border-gray-800">
-      <nav className="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold">
-          Taylor Zhang
-        </Link>
-        <div className="flex items-center gap-6">
-          <Link
-            href="/writing"
-            className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-          >
-            Writing
-          </Link>
-          <Link
-            href="/showcase"
-            className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-          >
-            Showcase
-          </Link>
-          <Link
-            href="/about"
-            className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-          >
-            About
-          </Link>
-          <div className="flex items-center gap-3 ml-4 pl-4 border-l border-gray-200 dark:border-gray-700">
+    <footer className="border-t border-gray-200 dark:border-gray-800 mt-16">
+      <div className="max-w-5xl mx-auto px-4 py-8">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex items-center gap-6 text-sm text-gray-600 dark:text-gray-400">
+            <Link href="/" className="hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
+              Home
+            </Link>
+            <Link href="/writing" className="hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
+              Writing
+            </Link>
+            <Link href="/showcase" className="hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
+              Showcase
+            </Link>
+            <Link href="/about" className="hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
+              About
+            </Link>
+          </div>
+
+          <div className="flex items-center gap-4">
             <a
               href="https://github.com/taylorzhangyx"
               target="_blank"
@@ -51,7 +47,11 @@ export default function Header() {
             </a>
           </div>
         </div>
-      </nav>
-    </header>
+
+        <div className="mt-6 text-center text-sm text-gray-500 dark:text-gray-500">
+          © {currentYear} Taylor Zhang. All rights reserved.
+        </div>
+      </div>
+    </footer>
   );
 }

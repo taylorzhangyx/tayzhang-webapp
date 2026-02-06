@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
   title: 'Taylor Zhang',
-  description: 'Personal website - articles, posts, and app showcase',
+  description: 'Backend engineer writing about production systems, practical AI/agents, and long-term engineering growth.',
 };
 
 export default function RootLayout({
@@ -14,9 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-screen">
+      <body className="min-h-screen flex flex-col">
         <Header />
-        <main className="max-w-5xl mx-auto px-4 py-8">{children}</main>
+        <main className="flex-1 max-w-5xl mx-auto px-4 py-8 w-full">{children}</main>
+        <Footer />
       </body>
     </html>
   );
