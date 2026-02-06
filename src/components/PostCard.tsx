@@ -16,7 +16,7 @@ export default function PostCard({ post }: PostCardProps) {
 
   return (
     <article className="border border-gray-200 dark:border-gray-800 rounded-lg p-6 hover:shadow-lg transition-shadow">
-      <Link href={`/posts/${post.slug}`}>
+      <Link href={`/writing/${post.slug}`}>
         <h2 className="text-xl font-semibold mb-2 hover:text-blue-600 dark:hover:text-blue-400">
           {post.title}
         </h2>
@@ -28,9 +28,12 @@ export default function PostCard({ post }: PostCardProps) {
       )}
       <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-500">
         {formattedDate && <time dateTime={post.date!}>{formattedDate}</time>}
+        {post.reading_time_minutes && (
+          <span>{post.reading_time_minutes} min read</span>
+        )}
         {post.tags.length > 0 && (
           <div className="flex gap-2">
-            {post.tags.map((tag) => (
+            {post.tags.slice(0, 3).map((tag) => (
               <span
                 key={tag}
                 className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"

@@ -2,7 +2,11 @@
  * API client for communicating with the backend.
  */
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+// Use internal Docker URL for server-side requests, public URL for client-side
+const isServer = typeof window === 'undefined';
+const API_BASE_URL = isServer
+  ? (process.env.INTERNAL_API_URL || process.env.NEXT_PUBLIC_API_URL || 'http://backend:8000')
+  : (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000');
 const API_KEY = process.env.API_KEY || '';
 
 interface PostMetadata {
@@ -13,6 +17,7 @@ interface PostMetadata {
   date: string | null;
   tags: string[];
   published: boolean;
+  reading_time_minutes: number;
 }
 
 interface Post extends PostMetadata {
@@ -23,6 +28,16 @@ interface Post extends PostMetadata {
 interface PostListResponse {
   posts: PostMetadata[];
   total: number;
+}
+
+interface TagListResponse {
+  tags: string[];
+  total: number;
+}
+
+interface GetPostsOptions {
+  q?: string;
+  tag?: string;
 }
 
 async function fetchApi<T>(endpoint: string): Promise<T> {
@@ -41,12 +56,26 @@ async function fetchApi<T>(endpoint: string): Promise<T> {
   return response.json();
 }
 
-export async function getPosts(): Promise<PostListResponse> {
-  return fetchApi<PostListResponse>('/api/posts');
+export async function getPosts(options?: GetPostsOptions): Promise<PostListResponse> {
+  const params = new URLSearchParams();
+  if (options?.q) params.set('q', options.q);
+  if (options?.tag) params.set('tag', options.tag);
+
+  const queryString = params.toString();
+  const endpoint = queryString ? `/api/posts?${queryString}` : '/api/posts';
+  return fetchApi<PostListResponse>(endpoint);
 }
 
 export async function getPost(slug: string): Promise<Post> {
   return fetchApi<Post>(`/api/posts/${slug}`);
 }
 
-export type { Post, PostMetadata, PostListResponse };
+export async function getTags(): Promise<TagListResponse> {
+  return fetchApi<TagListResponse>('/api/posts/tags');
+}
+
+export async function getRelatedPosts(slug: string, limit: number = 3): Promise<PostListResponse> {
+  return fetchApi<PostListResponse>(`/api/posts/${slug}/related?limit=${limit}`);
+}
+
+export type { Post, PostMetadata, PostListResponse, TagListResponse };
