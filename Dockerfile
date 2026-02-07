@@ -3,12 +3,15 @@ FROM node:20 AS builder
 
 WORKDIR /app
 
-# Install dependencies
-COPY package.json package-lock.json* ./
-RUN npm install -g npm@latest
-RUN npm ci
+# Work around npm "Exit handler never called!" crashes in CI/docker builds
+RUN npm i -g npm@11.9.0
 
-# Copy source and build
+COPY package.json package-lock.json* ./
+RUN --mount=type=cache,target=/root/.npm npm ci --no-audit --no-fund
+
+# Make the failure obvious here if deps didn't install
+RUN test -x node_modules/.bin/next
+
 COPY . .
 RUN npm run build
 
