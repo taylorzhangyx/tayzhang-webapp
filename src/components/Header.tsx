@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <header className="border-b border-border bg-surface/80 backdrop-blur-sm sticky top-0 z-50">
       <nav className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="font-display text-xl font-semibold tracking-tight hover:text-accent transition-colors duration-fast">
+        <Link href="/" className="font-serif text-xl font-semibold tracking-tight hover:text-accent transition-colors duration-fast">
           Taylor Zhang
         </Link>
         <div className="flex items-center gap-8">

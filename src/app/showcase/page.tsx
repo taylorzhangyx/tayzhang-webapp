@@ -22,7 +22,7 @@ const apps: App[] = [
 export default function ShowcasePage() {
   return (
     <div className="animate-fade-in">
-      <h1 className="font-display text-4xl font-semibold mb-3 tracking-tight">App Showcase</h1>
+      <h1 className="font-serif text-4xl font-semibold mb-3 tracking-tight">App Showcase</h1>
       <p className="text-muted mb-10 text-lg">
         Small applications and tools I&apos;ve built.
       </p>
@@ -34,7 +34,7 @@ export default function ShowcasePage() {
             className="bg-surface border border-border rounded-md p-6 hover:shadow-md hover:border-accent/30 transition-all duration-base"
           >
             <div className="flex items-center justify-between mb-3">
-              <h2 className="font-display text-xl font-semibold">{app.name}</h2>
+              <h2 className="font-serif text-xl font-semibold">{app.name}</h2>
               <span
                 className={`text-xs px-2.5 py-1 rounded-md font-medium ${
                   app.status === 'live'

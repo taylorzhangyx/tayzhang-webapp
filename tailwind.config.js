@@ -22,8 +22,16 @@ module.exports = {
         'border-light': 'var(--color-border-light)',
       },
       fontFamily: {
-        display: 'var(--font-display)',
-        body: 'var(--font-body)',
+        serif: ['var(--font-display)', 'Georgia', 'serif'],
+        sans: ['var(--font-body)', 'sans-serif'],
+        mono: ['var(--font-code)', 'monospace'],
+      },
+      container: {
+        center: true,
+        padding: '2rem',
+        screens: {
+          '2xl': '1400px',
+        },
       },
       borderRadius: {
         sm: 'var(--radius-sm)',

@@ -15,41 +15,42 @@ export default function PostCard({ post }: PostCardProps) {
     : null;
 
   return (
-    <article className="group bg-surface border border-border rounded-md p-6 hover:shadow-md hover:border-accent/30 transition-all duration-base">
-      <Link href={`/writing/${post.slug}`} className="block">
-        <h2 className="font-display text-xl font-semibold mb-2 group-hover:text-accent transition-colors duration-fast">
-          {post.title}
-        </h2>
-      </Link>
-      {post.description && (
-        <p className="text-muted mb-4 line-clamp-2">
-          {post.description}
-        </p>
-      )}
-      <div className="flex items-center flex-wrap gap-3 text-sm text-subtle">
-        {formattedDate && <time dateTime={post.date!}>{formattedDate}</time>}
-        {post.reading_time_minutes && (
-          <>
-            <span className="text-border">·</span>
-            <span>{post.reading_time_minutes} min read</span>
-          </>
-        )}
-        {post.tags.length > 0 && (
-          <>
-            <span className="text-border">·</span>
-            <div className="flex gap-2">
-              {post.tags.slice(0, 3).map((tag) => (
-                <span
-                  key={tag}
-                  className="bg-accent-light text-accent px-2 py-0.5 rounded-sm text-xs font-medium"
-                >
-                  {tag}
-                </span>
-              ))}
+    <Link href={`/writing/${post.slug}`} className="block">
+      <article className="group cursor-pointer py-8 border-b border-border">
+        <div className="flex flex-col md:flex-row gap-4 md:gap-6 md:items-baseline">
+          <div className="w-32 shrink-0 font-mono text-xs text-accent font-medium uppercase tracking-wide">
+            {formattedDate && <time dateTime={post.date!}>{formattedDate}</time>}
+            {post.reading_time_minutes && (
+              <span className="md:block md:mt-1"> · {post.reading_time_minutes} min</span>
+            )}
+          </div>
+          <div>
+            <h2 className="text-2xl font-serif font-semibold mb-2 group-hover:text-accent transition-colors">
+              {post.title}
+            </h2>
+            {post.description && (
+              <p className="font-sans text-muted text-lg leading-relaxed mb-3 max-w-prose line-clamp-2">
+                {post.description}
+              </p>
+            )}
+            {post.tags.length > 0 && (
+              <div className="flex gap-2 mb-3">
+                {post.tags.slice(0, 3).map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-xs px-2 py-1 bg-surface border border-border rounded-md text-muted font-sans"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+            <div className="flex items-center gap-2 text-sm font-medium text-foreground group-hover:text-accent transition-colors">
+              Read article <span>→</span>
             </div>
-          </>
-        )}
-      </div>
-    </article>
+          </div>
+        </div>
+      </article>
+    </Link>
   );
 }
