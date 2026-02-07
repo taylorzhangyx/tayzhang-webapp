@@ -24,11 +24,11 @@ export default async function Home() {
     <div className="space-y-20">
       {/* Hero Section */}
       <section className="py-12 animate-fade-in">
-        <h1 className="font-display text-5xl md:text-6xl font-semibold mb-6 tracking-tight">
+        <h1 className="font-serif text-5xl md:text-6xl font-semibold mb-6 tracking-tight">
           Taylor Zhang
         </h1>
         <p className="text-xl md:text-2xl text-muted mb-6 max-w-2xl leading-relaxed">
-          Backend engineer building production systems and practical AI applications.
+          Software engineer who writes about the human side of technical problems and building practical AI applications.
         </p>
         <ul className="text-muted mb-10 space-y-2">
           <li className="flex items-center gap-2">
@@ -86,7 +86,7 @@ export default async function Home() {
       {featuredPosts.length > 0 && (
         <section className="animate-fade-in stagger-2">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="font-display text-2xl font-semibold">Featured Writing</h2>
+            <h2 className="font-serif text-2xl font-semibold">Featured Writing</h2>
             <Link
               href="/writing"
               className="text-accent hover:text-accent-hover transition-colors duration-fast text-sm font-medium"

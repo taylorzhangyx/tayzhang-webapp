@@ -95,7 +95,7 @@ export default function WritingClient({ initialPosts, allTags }: WritingClientPr
       {/* Start Here Section */}
       {showStartHere && startHerePosts.length > 0 && (
         <section className="mb-14">
-          <h2 className="font-display text-xl font-semibold mb-5 text-foreground">
+          <h2 className="font-serif text-xl font-semibold mb-5 text-foreground">
             Start Here
           </h2>
           <div className="space-y-4">
@@ -108,7 +108,7 @@ export default function WritingClient({ initialPosts, allTags }: WritingClientPr
 
       {/* All Posts / Filtered Results */}
       <section>
-        <h2 className="font-display text-xl font-semibold mb-5 text-foreground">
+        <h2 className="font-serif text-xl font-semibold mb-5 text-foreground">
           {searchQuery || selectedTag ? 'Results' : 'All Writing'}
         </h2>
 

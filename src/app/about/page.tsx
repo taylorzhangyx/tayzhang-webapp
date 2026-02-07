@@ -6,7 +6,7 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <article className="max-w-3xl mx-auto animate-fade-in">
-      <h1 className="font-display text-4xl font-semibold mb-10 tracking-tight">About</h1>
+      <h1 className="font-serif text-4xl font-semibold mb-10 tracking-tight">About</h1>
 
       <div className="prose prose-lg max-w-none space-y-6">
         <p className="text-xl text-muted leading-relaxed">
@@ -22,18 +22,18 @@ export default function AboutPage() {
         </p>
 
         <p>
-          Lately, my focus has been on <strong>AI-powered applications</strong>—not
-          model research, but how agents, RAG systems, evaluation, and workflows
+          Lately, my focus has been on <strong>AI-powered applications</strong>especially
+          how agents, RAG systems, evaluation, and workflows
           actually work in production under real constraints like cost, latency, and
           failure modes.
         </p>
 
         <hr className="my-10 border-border" />
 
-        <h2 className="font-display text-2xl font-semibold">This blog is where I think in public.</h2>
+        <h2 className="font-serif text-2xl font-semibold">This blog is where I think in public.</h2>
 
         <p>
-          I write about backend engineering, practical AI systems, and career
+          I write about software engineering, practical AI systems, and career
           decisions from the perspective of an individual contributor who cares about
           depth, leverage, and sustainable growth.
         </p>
@@ -47,7 +47,7 @@ export default function AboutPage() {
       {/* Now Section */}
       <section className="mt-14 p-8 bg-surface border border-border rounded-lg">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="font-display text-2xl font-semibold">Now</h2>
+          <h2 className="font-serif text-2xl font-semibold">Now</h2>
           <span className="text-sm text-subtle">
             Updated: 2025-01-15
           </span>
@@ -55,7 +55,7 @@ export default function AboutPage() {
 
         <div className="space-y-8">
           <div>
-            <h3 className="font-display font-semibold text-lg mb-2 flex items-center gap-2">
+            <h3 className="font-serif font-semibold text-lg mb-2 flex items-center gap-2">
               <span className="w-2 h-2 bg-accent rounded-full"></span>
               Building
             </h3>
@@ -66,7 +66,7 @@ export default function AboutPage() {
           </div>
 
           <div>
-            <h3 className="font-display font-semibold text-lg mb-2 flex items-center gap-2">
+            <h3 className="font-serif font-semibold text-lg mb-2 flex items-center gap-2">
               <span className="w-2 h-2 bg-accent rounded-full"></span>
               Learning
             </h3>
@@ -80,7 +80,7 @@ export default function AboutPage() {
 
       {/* Follow Links */}
       <section className="mt-14">
-        <h2 className="font-display text-xl font-semibold mb-5">Connect</h2>
+        <h2 className="font-serif text-xl font-semibold mb-5">Connect</h2>
         <div className="flex gap-4">
           <a
             href="https://github.com/taylorzhangyx"

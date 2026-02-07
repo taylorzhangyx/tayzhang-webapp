@@ -61,25 +61,35 @@ export default async function PostPage({ params }: PageProps) {
 
   return (
     <article className="max-w-3xl mx-auto animate-fade-in">
-      <header className="mb-10">
-        <h1 className="font-display text-4xl md:text-5xl font-semibold mb-5 tracking-tight leading-tight">
-          {post.title}
-        </h1>
-        <div className="flex items-center gap-4 text-muted">
-          {post.author && <span>{post.author}</span>}
+      <header className="mb-10 max-w-2xl mx-auto">
+        <div className="flex gap-3 mb-4 font-mono text-xs font-medium text-accent uppercase tracking-wider">
           {formattedDate && <time dateTime={post.date!}>{formattedDate}</time>}
           {post.reading_time_minutes && (
-            <span>{post.reading_time_minutes} min read</span>
+            <>
+              <span>·</span>
+              <span>{post.reading_time_minutes} min read</span>
+            </>
+          )}
+          {post.author && (
+            <>
+              <span>·</span>
+              <span>{post.author}</span>
+            </>
           )}
         </div>
+
+        <h1 className="text-4xl md:text-5xl font-serif font-semibold leading-[1.1] mb-6">
+          {post.title}
+        </h1>
+
         {post.tags.length > 0 && (
-          <div className="flex gap-2 mt-5">
+          <div className="flex gap-2">
             {post.tags.map((tag) => (
               <Link
                 key={tag}
                 href={`/writing?tag=${encodeURIComponent(tag)}`}
-                className="bg-accent-light text-accent px-3 py-1 rounded-md text-sm font-medium
-                         hover:bg-accent hover:text-white transition-colors duration-fast"
+                className="text-xs px-2 py-1 bg-surface border border-border rounded-md text-muted font-sans
+                         hover:border-accent hover:text-accent transition-colors"
               >
                 {tag}
               </Link>
@@ -95,7 +105,7 @@ export default async function PostPage({ params }: PageProps) {
 
       {/* Follow CTA */}
       <div className="mt-14 p-8 bg-surface border border-border rounded-lg">
-        <h3 className="font-display text-xl font-semibold mb-2">Enjoyed this post?</h3>
+        <h3 className="font-serif text-xl font-semibold mb-2">Enjoyed this post?</h3>
         <p className="text-muted mb-6">
           Follow me for more content on backend engineering and practical AI.
         </p>
@@ -130,7 +140,7 @@ export default async function PostPage({ params }: PageProps) {
       {/* Related Posts */}
       {relatedPosts.length > 0 && (
         <section className="mt-14">
-          <h2 className="font-display text-2xl font-semibold mb-6">Related Posts</h2>
+          <h2 className="font-serif text-2xl font-semibold mb-6">Related Posts</h2>
           <div className="space-y-4">
             {relatedPosts.map((relatedPost) => (
               <PostCard key={relatedPost.slug} post={relatedPost} />

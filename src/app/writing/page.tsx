@@ -26,7 +26,7 @@ export default async function WritingPage() {
 
   return (
     <div className="animate-fade-in">
-      <h1 className="font-display text-4xl font-semibold mb-3 tracking-tight">Writing</h1>
+      <h1 className="font-serif text-4xl font-semibold mb-3 tracking-tight">Writing</h1>
       <p className="text-muted mb-10 text-lg">
         Thoughts on backend engineering, practical AI/agents, and long-term growth.
       </p>
