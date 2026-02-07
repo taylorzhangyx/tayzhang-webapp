@@ -1,3 +1,10 @@
 node_modules
 .next
 .git
+.gitignore
+.env*
+Dockerfile*
+README*
+*.md
+.vscode
+.eslintcache
