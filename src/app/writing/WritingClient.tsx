@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import PostCard from '@/components/PostCard';
 import type { PostMetadata } from '@/lib/api';
 
@@ -57,21 +57,21 @@ export default function WritingClient({ initialPosts, allTags }: WritingClientPr
           placeholder="Search posts..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-lg
-                     bg-white dark:bg-gray-900 focus:outline-none focus:ring-2
-                     focus:ring-blue-500 dark:focus:ring-blue-400"
+          className="w-full px-4 py-3 border border-border rounded-md
+                     bg-surface focus:outline-none focus:ring-2
+                     focus:ring-accent/50 focus:border-accent transition-all duration-fast"
         />
       </div>
 
       {/* Tag Filter */}
       {allTags.length > 0 && (
-        <div className="mb-8 flex flex-wrap gap-2">
+        <div className="mb-10 flex flex-wrap gap-2">
           <button
             onClick={() => setSelectedTag(null)}
-            className={`px-3 py-1 rounded-full text-sm transition-colors ${
+            className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all duration-fast ${
               !selectedTag
-                ? 'bg-blue-600 text-white'
-                : 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700'
+                ? 'bg-accent text-white'
+                : 'bg-surface border border-border hover:border-accent hover:text-accent'
             }`}
           >
             All
@@ -80,10 +80,10 @@ export default function WritingClient({ initialPosts, allTags }: WritingClientPr
             <button
               key={tag}
               onClick={() => setSelectedTag(tag === selectedTag ? null : tag)}
-              className={`px-3 py-1 rounded-full text-sm transition-colors ${
+              className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all duration-fast ${
                 selectedTag === tag
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700'
+                  ? 'bg-accent text-white'
+                  : 'bg-surface border border-border hover:border-accent hover:text-accent'
               }`}
             >
               {tag}
@@ -94,8 +94,8 @@ export default function WritingClient({ initialPosts, allTags }: WritingClientPr
 
       {/* Start Here Section */}
       {showStartHere && startHerePosts.length > 0 && (
-        <section className="mb-12">
-          <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+        <section className="mb-14">
+          <h2 className="font-display text-xl font-semibold mb-5 text-foreground">
             Start Here
           </h2>
           <div className="space-y-4">
@@ -108,18 +108,18 @@ export default function WritingClient({ initialPosts, allTags }: WritingClientPr
 
       {/* All Posts / Filtered Results */}
       <section>
-        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+        <h2 className="font-display text-xl font-semibold mb-5 text-foreground">
           {searchQuery || selectedTag ? 'Results' : 'All Writing'}
         </h2>
 
         {noResults ? (
-          <div className="text-center py-12">
-            <p className="text-gray-600 dark:text-gray-400 mb-6">
+          <div className="text-center py-16">
+            <p className="text-muted mb-8">
               No posts found matching your criteria.
             </p>
             {startHerePosts.length > 0 && (
               <div>
-                <p className="text-sm text-gray-500 dark:text-gray-500 mb-4">
+                <p className="text-sm text-subtle mb-6">
                   Try these popular posts instead:
                 </p>
                 <div className="space-y-4">

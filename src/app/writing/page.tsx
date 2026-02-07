@@ -25,15 +25,15 @@ export default async function WritingPage() {
   }
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold mb-2">Writing</h1>
-      <p className="text-gray-600 dark:text-gray-400 mb-8">
+    <div className="animate-fade-in">
+      <h1 className="font-display text-4xl font-semibold mb-3 tracking-tight">Writing</h1>
+      <p className="text-muted mb-10 text-lg">
         Thoughts on backend engineering, practical AI/agents, and long-term growth.
       </p>
 
       {error && (
-        <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4 mb-8">
-          <p className="text-yellow-800 dark:text-yellow-200">
+        <div className="bg-accent-light border border-accent/20 rounded-md p-4 mb-8">
+          <p className="text-accent">
             Unable to load posts. {error}
           </p>
         </div>

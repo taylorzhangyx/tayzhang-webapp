@@ -4,20 +4,20 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-gray-200 dark:border-gray-800 mt-16">
-      <div className="max-w-5xl mx-auto px-4 py-8">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex items-center gap-6 text-sm text-gray-600 dark:text-gray-400">
-            <Link href="/" className="hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
+    <footer className="border-t border-border mt-16 bg-surface">
+      <div className="max-w-4xl mx-auto px-6 py-10">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex items-center gap-8 text-sm">
+            <Link href="/" className="text-muted hover:text-foreground transition-colors duration-fast">
               Home
             </Link>
-            <Link href="/writing" className="hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
+            <Link href="/writing" className="text-muted hover:text-foreground transition-colors duration-fast">
               Writing
             </Link>
-            <Link href="/showcase" className="hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
+            <Link href="/showcase" className="text-muted hover:text-foreground transition-colors duration-fast">
               Showcase
             </Link>
-            <Link href="/about" className="hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
+            <Link href="/about" className="text-muted hover:text-foreground transition-colors duration-fast">
               About
             </Link>
           </div>
@@ -27,7 +27,7 @@ export default function Footer() {
               href="https://github.com/taylorzhangyx"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+              className="text-muted hover:text-foreground transition-colors duration-fast"
               aria-label="GitHub"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -38,7 +38,7 @@ export default function Footer() {
               href="https://www.linkedin.com/in/yxzh/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              className="text-muted hover:text-accent transition-colors duration-fast"
               aria-label="LinkedIn"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -48,8 +48,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-6 text-center text-sm text-gray-500 dark:text-gray-500">
-          © {currentYear} Taylor Zhang. All rights reserved.
+        <div className="mt-8 pt-6 border-t border-border-light text-center text-sm text-subtle">
+          © {currentYear} Taylor Zhang
         </div>
       </div>
     </footer>

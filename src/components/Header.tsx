@@ -2,36 +2,36 @@ import Link from 'next/link';
 
 export default function Header() {
   return (
-    <header className="border-b border-gray-200 dark:border-gray-800">
-      <nav className="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold">
+    <header className="border-b border-border bg-surface/80 backdrop-blur-sm sticky top-0 z-50">
+      <nav className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+        <Link href="/" className="font-display text-xl font-semibold tracking-tight hover:text-accent transition-colors duration-fast">
           Taylor Zhang
         </Link>
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-8">
           <Link
             href="/writing"
-            className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            className="text-muted hover:text-foreground transition-colors duration-fast"
           >
             Writing
           </Link>
           <Link
             href="/showcase"
-            className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            className="text-muted hover:text-foreground transition-colors duration-fast"
           >
             Showcase
           </Link>
           <Link
             href="/about"
-            className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            className="text-muted hover:text-foreground transition-colors duration-fast"
           >
             About
           </Link>
-          <div className="flex items-center gap-3 ml-4 pl-4 border-l border-gray-200 dark:border-gray-700">
+          <div className="flex items-center gap-3 ml-2 pl-6 border-l border-border">
             <a
               href="https://github.com/taylorzhangyx"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+              className="text-muted hover:text-foreground transition-colors duration-fast"
               aria-label="GitHub"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -42,7 +42,7 @@ export default function Header() {
               href="https://www.linkedin.com/in/yxzh/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              className="text-muted hover:text-accent transition-colors duration-fast"
               aria-label="LinkedIn"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

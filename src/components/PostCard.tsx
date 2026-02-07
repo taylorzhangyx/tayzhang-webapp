@@ -9,39 +9,45 @@ export default function PostCard({ post }: PostCardProps) {
   const formattedDate = post.date
     ? new Date(post.date).toLocaleDateString('en-US', {
         year: 'numeric',
-        month: 'long',
+        month: 'short',
         day: 'numeric',
       })
     : null;
 
   return (
-    <article className="border border-gray-200 dark:border-gray-800 rounded-lg p-6 hover:shadow-lg transition-shadow">
-      <Link href={`/writing/${post.slug}`}>
-        <h2 className="text-xl font-semibold mb-2 hover:text-blue-600 dark:hover:text-blue-400">
+    <article className="group bg-surface border border-border rounded-md p-6 hover:shadow-md hover:border-accent/30 transition-all duration-base">
+      <Link href={`/writing/${post.slug}`} className="block">
+        <h2 className="font-display text-xl font-semibold mb-2 group-hover:text-accent transition-colors duration-fast">
           {post.title}
         </h2>
       </Link>
       {post.description && (
-        <p className="text-gray-600 dark:text-gray-400 mb-4">
+        <p className="text-muted mb-4 line-clamp-2">
           {post.description}
         </p>
       )}
-      <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-500">
+      <div className="flex items-center flex-wrap gap-3 text-sm text-subtle">
         {formattedDate && <time dateTime={post.date!}>{formattedDate}</time>}
         {post.reading_time_minutes && (
-          <span>{post.reading_time_minutes} min read</span>
+          <>
+            <span className="text-border">·</span>
+            <span>{post.reading_time_minutes} min read</span>
+          </>
         )}
         {post.tags.length > 0 && (
-          <div className="flex gap-2">
-            {post.tags.slice(0, 3).map((tag) => (
-              <span
-                key={tag}
-                className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
+          <>
+            <span className="text-border">·</span>
+            <div className="flex gap-2">
+              {post.tags.slice(0, 3).map((tag) => (
+                <span
+                  key={tag}
+                  className="bg-accent-light text-accent px-2 py-0.5 rounded-sm text-xs font-medium"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </>
         )}
       </div>
     </article>
